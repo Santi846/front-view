@@ -1,12 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 import {Button} from '../src/components/button'
 
 function App() {
   // const [count, setCount] = useState(0)
   
+  const [data, setData] = useState([]);
+
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    // one way ////////////////////////////////////////////
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await axios.get('http://127.0.0.1:8000');
+    //             setData(response.data);
+    //         } catch (error) {
+    //             console.error('Error fetching data:', error);
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, []);
+
+
+    // another way ////////////////////////////////////////////
+
+    // useEffect(() => {
+    //       const fetchData = async () => {
+    //           try {
+    //               const response = await axios.get(apiUrl);
+    //               setData(response.data);
+    //           } catch (error) {
+    //               console.error('Error fetching data:', error);
+    //           }
+    //       };
+  
+    //       fetchData();
+    //   }, []);
+
+  // another way ////////////////////////////////////////////
+
+  useEffect(() => {
+    const fetchData = async () => {
+      fetch(`${apiUrl}/data`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error fetching data:', error));
+    
+    };
+
+    fetchData();
+}, []);
 
   return (
     <>
@@ -18,6 +66,9 @@ function App() {
           Get Data
         </h2>
         <Button></Button>
+        {data.map(item => (
+                <div key={item.id}>{item.name}</div>
+            ))}
       </div>
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
