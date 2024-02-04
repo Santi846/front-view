@@ -10,7 +10,10 @@ export class Button extends React.Component {
   
 
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8006/`)
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    // axios.get(`http://127.0.0.1:8000/`)
+    axios.get(`${apiUrl}`)
       .then(res => {
         const pruebas = res.data;
         this.setState({ pruebas });

@@ -8,9 +8,10 @@ import {Button} from '../src/components/button'
 function App() {
   // const [count, setCount] = useState(0)
   
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-    const apiUrl = import.meta.env.VITE_API_URL;
+    // const apiUrl = import.meta.env.VITE_API_URL;
+    // const apiUrl = 'http://127.0.0.1:8000';
 
     // one way ////////////////////////////////////////////
     // useEffect(() => {
@@ -44,17 +45,30 @@ function App() {
 
   // another way ////////////////////////////////////////////
 
-  useEffect(() => {
-    const fetchData = async () => {
-      fetch(`${apiUrl}/data`)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error fetching data:', error));
-    
-    };
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       fetch(`${apiUrl}`)
+  //       .then(response => response.json())
+  //       .then(data => console.log(data))
+  //       .catch(error => console.error('Error fetching data:', error));
+      
+  //     };
 
-    fetchData();
-}, []);
+  //     fetchData();
+  // }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`${apiUrl}`);
+  //       setData(response);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [apiUrl]);
 
   return (
     <>
@@ -66,9 +80,9 @@ function App() {
           Get Data
         </h2>
         <Button></Button>
-        {data.map(item => (
+        {/* {data.map(item => (
                 <div key={item.id}>{item.name}</div>
-            ))}
+            ))} */}
       </div>
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
