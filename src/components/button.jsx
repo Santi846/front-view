@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export class Button extends React.Component {
+export class Prueba extends React.Component {
 
     state = {
     pruebas: [],
@@ -22,14 +22,20 @@ export class Button extends React.Component {
 
   render() {
     return (
+      <>
       <ul>
         {
           this.state.pruebas
             .map(prueba =>
-              <li key={prueba.id}>{prueba.title}</li>
+              <>
+              <li key={prueba.id}>{prueba.title}<button>Edit</button><button>Delete</button></li>
+              
+              </>
             )
         }
       </ul>
+      
+      </>
     )
   }
 }

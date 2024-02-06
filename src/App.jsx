@@ -3,7 +3,7 @@ import axios from 'axios';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import {Button} from '../src/components/button'
+import {Prueba} from '../src/components/button'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -74,12 +74,14 @@ function App() {
     <>
       <div className="main_container">
         <h1 id="title">
-          Home Page
+          Articles
         </h1>
-        <h2 id="sub_title">
+        {/* <h2 id="sub_title">
           Get Data
-        </h2>
-        <Button></Button>
+        </h2> */}
+        <button>Create</button>
+        <Prueba></Prueba>
+        <button>Show all</button>
         {/* {data.map(item => (
                 <div key={item.id}>{item.name}</div>
             ))} */}
